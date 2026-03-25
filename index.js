@@ -31,6 +31,8 @@ const VIBES = {
   20: "Netflix",
   21: "Should Sleep",
   22: "Why are you awake",
+  23: "Should probs sleep",
+  24: "zzzzzzzzzzzzz...",
 };
 
 function pad(n) {
@@ -42,12 +44,20 @@ function tick() {
   const h = d.getHours();
   document.getElementById("year").textContent = d.getFullYear();
   document.getElementById("month").textContent = pad(d.getMonth() + 1);
+  document.getElementById("week").textContent = getWeekNumber(d);
   document.getElementById("date").textContent = pad(d.getDate());
   document.getElementById("day").textContent = DAYS[d.getDay()];
   document.getElementById("hour").textContent = pad(h);
   document.getElementById("minute").textContent = pad(d.getMinutes());
   document.getElementById("second").textContent = pad(d.getSeconds());
   document.getElementById("occupation").textContent = VIBES[h] ?? "Caffeine";
+}
+
+function getWeekNumber(d) {
+  d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  return Math.ceil(((d - yearStart) / 86400000 + 1) / 7);
 }
 
 tick();
