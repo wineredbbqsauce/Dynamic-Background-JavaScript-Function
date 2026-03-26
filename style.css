@@ -103,7 +103,22 @@ body::before {
   width: 13px;
   height: 13px;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.dot-r::before,
+.dot-y::before,
+.dot-g::before {
+  font-family: "Arial", sans-serif; /* En enkel font for symbolene */
+  font-size: 8px;
+  font-weight: bold;
+  color: rgba(0, 0, 0); /* Litt gjennomsiktig svart */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
 .dot-r {
   background: #ff5f57;
 }
@@ -112,6 +127,58 @@ body::before {
 }
 .dot-g {
   background: #28c840;
+}
+
+.dot-r::before {
+  content: "✕";
+}
+
+.dot-y::before {
+  content: "−";
+}
+
+.dot-g::before {
+  content: "+";
+}
+
+.dots:hover .dot::before {
+  opacity: 1;
+}
+
+/* Windows Style Controls */
+.windows-controls {
+  position: absolute;
+  top: 0;
+  right: 0; /* WINDOWS R TIL HØYRE*/
+  display: flex;
+  height: 32px;
+}
+
+.win-btn {
+  width: 46px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  color: var(--comment);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15 ease;
+  outline: none;
+}
+
+.win-min:hover,
+.win-max:hover {
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+}
+
+.win-close:hover {
+  background-color: #e81123;
+  color: white;
+  border-top-right-radius: 14px;
 }
 
 /* file tab */
