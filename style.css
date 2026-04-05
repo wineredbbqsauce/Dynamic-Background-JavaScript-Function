@@ -146,10 +146,10 @@ body::before {
 }
 
 /* Windows Style Controls */
-.windows-controls {
+/* .windows-controls {
   position: absolute;
   top: 0;
-  right: 0; /* WINDOWS R TIL HØYRE*/
+  right: 0; 
   display: flex;
   height: 32px;
 }
@@ -179,7 +179,7 @@ body::before {
   background-color: #e81123;
   color: white;
   border-top-right-radius: 14px;
-}
+} */
 
 /* file tab */
 .tab {
